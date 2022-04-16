@@ -9,11 +9,11 @@ intermediate.hdfs_file_replication_factor:
 intermediate.hdfs_folder_replication_factor:
     stdin: "0"
 intermediate.hdfs_describe_size:
-    stdin: "provide your answer here"
+    stdin: "actual"
 intermediate.hdfs_cumulative_size:
     stdin: "hdfs dfs -du -h -s -x /data/wiki"
 intermediate.hdfs_create_folder:
-    stdin: "provide your answer here"
+    stdin: "hdfs dfs -mkdir /user/bdb2c2022q2_Leshchankin/13rusfolder"
 intermediate.hdfs_create_nested_folder:
     stdin: "provide your answer here"
 intermediate.hdfs_remove_nested_folders:
