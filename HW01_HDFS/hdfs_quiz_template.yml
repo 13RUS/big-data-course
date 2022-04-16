@@ -1,7 +1,8 @@
 beginner.how_many_items_in_hdfs:
     stdin: "9"
 intermediate.hdfs_list_recursively:
-    stdin: "provide your answer here"
+    stdin: "drwxr-xr-x   - hdfs hdfs          0 2020-03-13 00:23 /data/wiki/en_articles
+drwxr-xr-x   - hdfs hdfs          0 2020-03-12 21:03 /data/wiki/en_articles_part"
 intermediate.hdfs_list_recursively_human_readable:
     stdin: "provide your answer here"
 intermediate.hdfs_file_replication_factor:
