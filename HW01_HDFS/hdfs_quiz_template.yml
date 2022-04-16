@@ -4,8 +4,8 @@ intermediate.hdfs_list_recursively:
     stdin: "drwxr-xr-x   - hdfs hdfs          0 2020-03-13 00:23 /data/wiki/en_articles
 drwxr-xr-x   - hdfs hdfs          0 2020-03-12 21:03 /data/wiki/en_articles_part"
 intermediate.hdfs_list_recursively_human_readable:
-    stdin: "11.5 G  /data/wiki/en_articles
-73.3 M  /data/wiki/en_articles_part"
+    stdin: "drwxr-xr-x   - hdfs hdfs          0 2020-03-13 00:23 /data/wiki/en_articles
+drwxr-xr-x   - hdfs hdfs          0 2020-03-12 21:03 /data/wiki/en_articles_part"
 intermediate.hdfs_file_replication_factor:
     stdin: "provide your answer here"
 intermediate.hdfs_folder_replication_factor:
