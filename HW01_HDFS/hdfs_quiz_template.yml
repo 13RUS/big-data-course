@@ -1,5 +1,5 @@
 beginner.how_many_items_in_hdfs:
-    stdin: "provide your answer here"
+    stdin: "9"
 intermediate.hdfs_list_recursively:
     stdin: "provide your answer here"
 intermediate.hdfs_list_recursively_human_readable:
