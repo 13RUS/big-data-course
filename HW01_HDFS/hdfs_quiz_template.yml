@@ -13,7 +13,7 @@ intermediate.hdfs_folder_replication_factor:
 intermediate.hdfs_describe_size:
     stdin: "provide your answer here"
 intermediate.hdfs_cumulative_size:
-    stdin: "provide your answer here"
+    stdin: "hdfs dfs -du -h -s -x /data/wiki"
 intermediate.hdfs_create_folder:
     stdin: "provide your answer here"
 intermediate.hdfs_create_nested_folder:
