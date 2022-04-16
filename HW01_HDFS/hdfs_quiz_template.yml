@@ -1,15 +1,13 @@
 beginner.how_many_items_in_hdfs:
     stdin: "9"
 intermediate.hdfs_list_recursively:
-    stdin: "drwxr-xr-x   - hdfs hdfs          0 2020-03-13 00:23 /data/wiki/en_articles
-drwxr-xr-x   - hdfs hdfs          0 2020-03-12 21:03 /data/wiki/en_articles_part"
+    stdin: "dhdfs dfs -ls -R /data/wiki"
 intermediate.hdfs_list_recursively_human_readable:
-    stdin: "drwxr-xr-x   - hdfs hdfs          0 2020-03-13 00:23 /data/wiki/en_articles
-drwxr-xr-x   - hdfs hdfs          0 2020-03-12 21:03 /data/wiki/en_articles_part"
+    stdin: "hdfs dfs -ls -R -h /data/wiki"
 intermediate.hdfs_file_replication_factor:
-    stdin: "provide your answer here"
+    stdin: "3"
 intermediate.hdfs_folder_replication_factor:
-    stdin: "provide your answer here"
+    stdin: "0"
 intermediate.hdfs_describe_size:
     stdin: "provide your answer here"
 intermediate.hdfs_cumulative_size:
