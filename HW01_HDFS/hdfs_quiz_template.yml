@@ -1,27 +1,27 @@
 beginner.how_many_items_in_hdfs:
-    stdin: "9"
+    stdin: 9
 intermediate.hdfs_list_recursively:
-    stdin: "dhdfs dfs -ls -R /data/wiki"
+    stdin: dhdfs dfs -ls -R /data/wiki
 intermediate.hdfs_list_recursively_human_readable:
-    stdin: "hdfs dfs -ls -R -h /data/wiki"
+    stdin: hdfs dfs -ls -R -h /data/wiki
 intermediate.hdfs_file_replication_factor:
-    stdin: "3"
+    stdin: 3
 intermediate.hdfs_folder_replication_factor:
-    stdin: "0"
+    stdin: 0
 intermediate.hdfs_describe_size:
-    stdin: "actual"
+    stdin: actual
 intermediate.hdfs_cumulative_size:
-    stdin: "hdfs dfs -du -h -s -x /data/wiki"
+    stdin: hdfs dfs -du -h -s /data/wiki
 intermediate.hdfs_create_folder:
-    stdin: "hdfs dfs -mkdir /user/bdb2c2022q2_Leshchankin/13rusfolder"
+    stdin: hdfs dfs -mkdir /user/bdb2c2022q2_Leshchankin/bdb2c2022q2_Leshchankin
 intermediate.hdfs_create_nested_folder:
-    stdin: "provide your answer here"
+    stdin: hdfs dfs -mkdir -p /user/bdb2c2022q2_Leshchankin/bdb2c2022q2_Leshchankin/testl2/testl3
 intermediate.hdfs_remove_nested_folders:
-    stdin: "provide your answer here"
+    stdin: hdfs dfs -rm -R /user/bdb2c2022q2_Leshchankin/bdb2c2022q2_Leshchankin
 intermediate.hdfs_trash_behavior:
-    stdin: "provide your answer here"
+    stdin: cпециально отведенная директорию, куда удаляется файл, а после истечения определенного времени, происходит его физическое удаление hdfs dfs -rm -R -skipTrash /user/bdb2c2022q2_Leshchankin/bdb2c2022q2_Leshchankin
 intermediate.hdfs_create_empty_file:
-    stdin: "provide your answer here"
+    stdin: hdfs dfs -touchz /user/bdb2c2022q2_Leshchankin/empty_file
 intermediate.hdfs_create_small_file:
     stdin: |-
         provide your
