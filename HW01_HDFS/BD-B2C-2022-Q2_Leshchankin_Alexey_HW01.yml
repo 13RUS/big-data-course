@@ -1,0 +1,75 @@
+beginner.how_many_items_in_hdfs:
+  stdin: 9
+intermediate.hdfs_list_recursively:
+  stdin: dhdfs dfs -ls -R /data/wiki
+intermediate.hdfs_list_recursively_human_readable:
+  stdin: hdfs dfs -ls -R -h /data/wiki
+intermediate.hdfs_file_replication_factor:
+  stdin: 3
+intermediate.hdfs_folder_replication_factor:
+  stdin: 0
+intermediate.hdfs_describe_size:
+  stdin: actual
+intermediate.hdfs_cumulative_size:
+  stdin: hdfs dfs -du -h -s /data/wiki
+intermediate.hdfs_create_folder:
+  stdin: hdfs dfs -mkdir /user/bdb2c2022q2_Leshchankin/bdb2c2022q2_Leshchankin
+intermediate.hdfs_create_nested_folder:
+  stdin: hdfs dfs -mkdir -p /user/bdb2c2022q2_Leshchankin/bdb2c2022q2_Leshchankin/testl2/testl3
+intermediate.hdfs_remove_nested_folders:
+  stdin: hdfs dfs -rm -R /user/bdb2c2022q2_Leshchankin/bdb2c2022q2_Leshchankin
+intermediate.hdfs_trash_behavior:
+  stdin: |- 
+    cпециально отведенная директория, куда удаляется файл, а после истечения определенного времени, происходит его физическое удаление 
+    hdfs dfs -rm -R -skipTrash /user/bdb2c2022q2_Leshchankin/bdb2c2022q2_Leshchankin
+intermediate.hdfs_create_empty_file:
+  stdin: hdfs dfs -touchz /user/bdb2c2022q2_Leshchankin/empty_file
+intermediate.hdfs_create_small_file:
+  stdin: hdfs dfs -put 13rus_test_file /user/bdb2c2022q2_Leshchankin
+intermediate.hdfs_output_file:
+  stdin: hdfs dfs -cat /user/bdb2c2022q2_Leshchankin/13rus_test_file
+intermediate.hdfs_output_file_end:
+  stdin: hdfs dfs -tail /user/bdb2c2022q2_Leshchankin/13rus_test_file
+intermediate.hdfs_output_file_start:
+  stdin: hdfs dfs -cat /user/bdb2c2022q2_Leshchankin/13rus_test_file | head -n 4
+intermediate.hdfs_tail_vs_unix_tail:
+  stdin: tail -c kB 13rus_test_file
+intermediate.hdfs_copy_file:
+  stdin: hdfs dfs -cp /user/bdb2c2022q2_Leshchankin/13rus_test_file /user/bdb2c2022q2_Leshchankin/13rus_test_file_copied
+intermediate.hdfs_move_file:
+  stdin: hdfs dfs -mv /user/bdb2c2022q2_Leshchankin/13rus_test_file_copied /user/bdb2c2022q2_Leshchankin/13rusfolder
+intermediate.hdfs_download_and_concatenate:
+  stdin: hdfs dfs -getmerge /user/bdb2c2022q2_Leshchankin/13rus_test_file /user/bdb2c2022q2_Leshchankin/empty_file mergedlocalfile
+advanced.hdfs_set_file_replication:
+  stdin: |-
+    hdfs dfs -setrep 2 /user/bdb2c2022q2_Leshchankin/13rus_test_file
+    потенциально много (зависит от размера файла и количества реплик), так как надо найти и удалить ненужные реплики и создать новые
+advanced.hdfs_get_files_and_block:
+  stdin: hdfs fsck /user/bdb2c2022q2_Leshchankin/13rus_test_file -files -blocks -locations
+advanced.hdfs_get_block_information:
+  stdin: hdfs fsck -blockId blk_1106635573
+advanced.hdfs_dfs_architecture:
+  stdin: |-
+    hdfs fsck /user/bdb2c2022q2_Leshchankin/13rus_test_file -files -blocks -locations
+    sudo -i -u hdfsuser
+    ssh brain-node1
+    find / -name "blk_1106635573"
+    cd /srv/disk1/hadoop/datanode/current/BP-981064612-78.46.171.101-1581506447497/current/finalized/subdir21/subdir11/
+    cat blk_1106635573
+    cat blk_1106635573_32896392.meta
+    hdfs dfs -ls -R /data/namenode_example
+    hdfs dfs -tail /data/namenode_example/current/fsimage_0000000000030725661
+    hdfs dfs -tail /data/namenode_example/current/edits_0000000000029536578-0000000000030039785
+
+advanced.webhdfs_read_100B:
+  stdin: curl -i "http://brain-node1.bigdatateam.org:50075/webhdfs/v1/user/bdb2c2022q2_Leshchankin/13rus_test_file?op=OPEN&namenoderpcaddress=brain-master.bigdatateam.org:8020&length=100&offset=0"
+advanced.webhdfs_curl_follow_redirects:
+  stdin: curl -i -L "http://brain-master:50070/webhdfs/v1/user/bdb2c2022q2_Leshchankin/13rus_test_file?op=OPEN&offset=0&length=100"
+advanced.webhdfs_get_file_detailed_information:
+  stdin: curl -i "http://brain-master:50070/webhdfs/v1/user/bdb2c2022q2_Leshchankin/13rus_test_file?op=GETFILESTATUS"
+advanced.webhdfs_change_file_replication:
+  stdin: curl -i -X PUT "http://brain-master:50070/webhdfs/v1/user/bdb2c2022q2_Leshchankin/13rus_test_file?op=SETREPLICATION&replication=3&user.name=bdb2c2022q2_Leshchankin"
+advanced.webhdfs_append_to_file:
+  stdin: |-
+    curl -i -X POST "http://brain-master:50070/webhdfs/v1/user/bdb2c2022q2_Leshchankin/13rus_test_file?op=APPEND
+    curl -i -X POST -T 13rus_test_file "http://brain-node1.bigdatateam.org:50075/webhdfs/v1/user/bdb2c2022q2_Leshchankin/13rus_test_file?op=APPEND&user.name=bdb2c2022q2_Leshchankin&namenoderpcaddress=brain-master.bigdatateam.org:8020"
