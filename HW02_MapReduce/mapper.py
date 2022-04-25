@@ -8,4 +8,5 @@ for line in sys.stdin:
     words = line.split()
 
     for word in words:
-        print(f'{random.random()}\t{word}')
+        #print(f'{random.random()}\t{word}')
+        print(f'{random.randint(1,90)}\t{word}')
