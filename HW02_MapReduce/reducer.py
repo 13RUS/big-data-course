@@ -26,11 +26,6 @@ for line in sys.stdin:
         current_counter = current_counter - 1
 
     if current_counter == 0:
-        if number_of_lines_for_output >= 0:
-            number_of_lines_for_output -= 1
-            print('%s' % current_string)
-
-        with open ("hw02_mr_data_ids.txt", "a") as f:
-            f.write ('%s\n' % current_string)
+        print ('%s' % current_string)
         current_counter = randint(1, 5)
         current_string = ""
